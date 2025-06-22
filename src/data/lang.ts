@@ -92,7 +92,7 @@ const lang = {
       },
       nedeljko: {
         name: "Nedeljko Danilović",
-        image: "Nedeljko.jpg",
+        image: "Nedeljko1.jpg",
         title: "IT Engineer\nCo-owner & Lead Web Developer",
         quote:
           "I believe great digital experiences start with clear, functional code. I enjoy building clean, modern websites that follow current trends, but never at the cost of usability, speed, or simplicity. I love a good challenge and always strive to find smart, efficient solutions for every project.",
@@ -199,7 +199,7 @@ const lang = {
       },
       nedeljko: {
         name: "Nedeljko Danilović",
-        image: "Nedeljko.jpg",
+        image: "Nedeljko1.jpg",
         title: "IT inženýr\nSpolumajitel & hlavní webový vývojář",
         quote:
           "Věřím, že skvělé digitální zážitky začínají čistým, funkčním kódem. Rád vytvářím moderní weby, které odpovídají současným trendům, ale nikdy ne na úkor použitelnosti, rychlosti nebo jednoduchosti. Mám rád výzvy a vždy se snažím najít chytrá a efektivní řešení pro každý projekt.",
