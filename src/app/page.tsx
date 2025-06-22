@@ -258,7 +258,7 @@ export default function Home() {
           trigger={triggerServicesAnimation}
           language={language}
           handleComingSoon={handleComingSoon}
-          showComingSoon={showComingSoon}
+          
         />
       )}
       {isMobile ? (
