@@ -47,9 +47,10 @@ export default function getAboutContent(language: "en" | "cz") {
           {t.nedeljko.name}
           <br />
           {t.nedeljko.title}
+          <br />
           
         </p>
-        <blockquote className="italic text-xs max-w-prose px-4 py-2 border-l-4 border-white rounded bg-white/5">
+        <blockquote className="italic text-sm max-w-prose px-4 py-2 border-l-4 border-white rounded bg-white/10">
           {t.nedeljko.quote}
         </blockquote>
         <div className="text-sm flex flex-col gap-3 text-left max-w-prose px-4">
