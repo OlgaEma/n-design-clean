@@ -37,11 +37,11 @@ export default function getAboutContent(language: "en" | "cz") {
     ),
 
     nedeljkoBlock: (
-      <div className="flex flex-col items-center gap-6 text-center text-white">
+      <div className="flex flex-col items-center gap-6 text-center  text-white">
         <img
           src="/Nedeljko1.jpg"
           alt="Nedeljko"
-          className="w-28 h-28 object-cover rounded-full shadow-md"
+          className="w-28 h-28 object-cover object-top rounded-full shadow-md"
         />
         <p className="text-sm font-semibold leading-snug whitespace-pre-line">
           {t.nedeljko.name}
