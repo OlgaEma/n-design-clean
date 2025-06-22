@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { RefObject } from "react";
 import lang from "@/data/lang";
 
@@ -51,9 +51,12 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
             }`}
             style={{ animationDelay: "2.1s" }}
           >
-            <img
+            <Image
               src={content.logoSrc}
               alt="N-design logo"
+              width={300} // adjust if needed
+              height={100}
+              priority
               className="w-[30%]"
             />
           </div>
@@ -76,9 +79,12 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
           {/* Natasha */}
           <div className="h-1/2 px-5 flex flex-row justify-around gap-5 group">
             <div className="flex flex-col items-center gap-6">
-              <img
+              <Image
                 src={content.natasha.image}
                 alt="Natasha"
+                width={180}
+                height={180}
+                priority
                 className={`rounded-full object-cover shadow-md shrink-0 ${
                   trigger ? "fade-in-delayed" : "opacity-0"
                 }`}
@@ -140,9 +146,12 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
             </div>
 
             <div className="flex flex-col pt-10 items-center gap-6">
-              <img
+              <Image
                 src={content.nedeljko.image}
                 alt="Nedeljko"
+                width={180}
+                height={180}
+                priority
                 className={`rounded-full object-cover object-top shadow-md shrink-0 opacity-0 ${
                   trigger ? "fade-in-delayed" : ""
                 }`}
@@ -155,15 +164,15 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
                 }}
               />
               <p
-  className={`text-lg font-semibold md:text-base lg:text-lg whitespace-pre-line text-center ${
-    trigger ? 'fade-in-delayed' : 'opacity-0'
-  }`}
-  style={trigger ? { animationDelay: '0.9s' } : {}}
->
-  {content.nedeljko.name}
-  {"\n"}
-  {content.nedeljko.title}
-</p>
+                className={`text-lg font-semibold md:text-base lg:text-lg whitespace-pre-line text-center ${
+                  trigger ? "fade-in-delayed" : "opacity-0"
+                }`}
+                style={trigger ? { animationDelay: "0.9s" } : {}}
+              >
+                {content.nedeljko.name}
+                {"\n"}
+                {content.nedeljko.title}
+              </p>
               <blockquote
                 className={`italic text-base 2xl:text-sm xl:text-xs lg:text-xs border rounded px-4 py-2 border-white text-center break-words max-w-[280px] w-full mx-auto ${
                   trigger ? "fade-in-delayed" : "opacity-0"

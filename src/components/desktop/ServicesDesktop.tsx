@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { RefObject } from "react";
 import lang from "@/data/lang";
 import ServiceCard from "@/components/ServiceCard";
@@ -9,7 +10,6 @@ interface Props {
   trigger: boolean;
   refProp: RefObject<HTMLDivElement | null>;
   handleComingSoon: () => void;
-  showComingSoon: boolean;
 }
 
 export default function ServicesDesktop({
@@ -17,7 +17,6 @@ export default function ServicesDesktop({
   trigger,
   refProp,
   handleComingSoon,
-  showComingSoon,
 }: Props) {
   const t = lang[language].services;
 
@@ -32,7 +31,7 @@ export default function ServicesDesktop({
         {trigger && (
           <div className="absolute top-0 left-0 w-[8%] h-full bg-white animate-slideDown z-0" />
         )}
-        
+
         <div
           className="relative z-10 gap-40 w-full h-full py-20 flex flex-col justify-start
          text-white font-montserrat"
@@ -67,8 +66,8 @@ export default function ServicesDesktop({
           <>
             <div className="absolute top-0 left-0 w-[2px] h-1/2 bg-white animate-lineDown z-10" />
             <div className="absolute bottom-0 left-0 w-[2px] h-1/2 bg-white animate-lineUp z-10" />
-            
-  <div className="w-full h-[2px] bg-white animate-horizontalSplit" />
+
+            <div className="w-full h-[2px] bg-white animate-horizontalSplit" />
 
             <div className="absolute top-1/2 left-1/2 w-[2px] h-full bg-white animate-lineUpFromCenter origin-bottom z-10" />
             <div className="absolute top-1/2 left-1/2 w-[2px] h-full bg-white animate-lineDownFromCenter origin-top z-10" />
@@ -109,9 +108,12 @@ export default function ServicesDesktop({
               ))}
             </div>
 
-            <img
+            <Image
               src="/picture1.png"
               alt="Architecture example"
+              width={600} // adjust to match your layout needs
+              height={400}
+              priority
               className={`w-[45%] rounded shadow-md ${
                 trigger ? "fade-in-delayed" : "opacity-0"
               }`}
@@ -132,11 +134,12 @@ export default function ServicesDesktop({
               />
             </div>
 
-            
-
-            <img
+            <Image
               src="/picture4.png"
               alt="Web project"
+              width={600} // Adjust based on layout needs
+              height={400}
+              priority
               className={`w-[45%] rounded shadow-md ${
                 trigger ? "fade-in-delayed" : "opacity-0"
               }`}

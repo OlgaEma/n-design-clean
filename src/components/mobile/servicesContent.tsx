@@ -1,8 +1,12 @@
 import lang from "@/data/lang";
+import Image from "next/image";
 import ServiceCard from "@/components/ServiceCard";
 import { Language } from "@/data/lang";
 
-export default function getServicesContent(language: Language, handleNavClick?: (id: string, fromId?: string) => void) {
+export default function getServicesContent(
+  language: Language,
+  handleNavClick?: (id: string, fromId?: string) => void
+) {
   const t = lang[language].services;
 
   const leftContent = (
@@ -15,7 +19,10 @@ export default function getServicesContent(language: Language, handleNavClick?: 
   );
 
   const architectureBlock = (
-    <div className="flex flex-col items-center gap-8 px-6 text-center group" key="architecture">
+    <div
+      className="flex flex-col items-center gap-8 px-6 text-center group"
+      key="architecture"
+    >
       <ServiceCard
         title={t.architecture.title}
         description={t.architecture.description}
@@ -25,37 +32,56 @@ export default function getServicesContent(language: Language, handleNavClick?: 
       <div className="text-sm flex flex-col gap-3 text-left max-w-prose px-4">
         {t.architecture.blocks.map((group, idx) => (
           <div key={idx} className="flex flex-col gap-2">
-            <h3><strong>{group.heading}</strong></h3>
+            <h3>
+              <strong>{group.heading}</strong>
+            </h3>
             <p>{group.text}</p>
           </div>
         ))}
       </div>
 
-      <img src="/picture1.png" alt="Architecture example" className="w-[45%] rounded shadow-md" />
+      <Image
+        src="/picture1.png"
+        alt="Architecture example"
+        width={600} // adjust based on your layout needs
+        height={400}
+        className="w-[45%] rounded shadow-md"
+      />
     </div>
   );
 
   const webBlock = (
-    <div className="flex flex-col items-center gap-8 px-6 text-center group" key="web">
+    <div
+      className="flex flex-col items-center gap-8 px-6 text-center group"
+      key="web"
+    >
       <ServiceCard
         title={t.web.title}
         description={t.web.description}
-       onClick={() => {
-  console.log("💥 Web card clicked");
-  handleNavClick?.("web", "services");
-}}
+        onClick={() => {
+          console.log("💥 Web card clicked");
+          handleNavClick?.("web", "services");
+        }}
       />
 
       <div className="text-sm flex flex-col gap-3 text-left max-w-prose px-4">
         {t.web.blocks.map((group, idx) => (
           <div key={idx} className="flex flex-col gap-2">
-            <h3><strong>{group.heading}</strong></h3>
+            <h3>
+              <strong>{group.heading}</strong>
+            </h3>
             <p>{group.text}</p>
           </div>
         ))}
       </div>
 
-      <img src="/picture4.png" alt="Web project" className="w-[45%] rounded shadow-md" />
+      <Image
+        src="/picture4.png"
+        alt="Web project"
+        width={600} // adjust as needed
+        height={400}
+        className="w-[45%] rounded shadow-md"
+      />
     </div>
   );
 
