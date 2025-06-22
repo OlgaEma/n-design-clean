@@ -20,11 +20,11 @@ export default function getAboutContent(language: "en" | "cz") {
           alt="Natasha"
           className="w-28 h-28 object-cover rounded-full shadow-md"
         />
-        <p className="text-sm font-semibold leading-snug">
-          {t.natasha.name}
-          <br />
-          {t.natasha.title}
-        </p>
+        <p className="text-sm font-semibold leading-snug whitespace-pre-line text-center">
+  {t.natasha.name}
+  {"\n"}
+  {t.natasha.title}
+</p> 
         <blockquote className="italic text-sm max-w-prose px-4 py-2 border-l-4 border-white rounded bg-white/10">
           {t.natasha.quote}
         </blockquote>
