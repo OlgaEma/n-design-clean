@@ -8,7 +8,7 @@ import ContactForm from "@/components/ContactForm";
 import ArchitectureGrid from "@/components/ArchitectureGrid";
 
 import ReferencesList from "@/components/ReferencesList";
-import { useSearchParams } from "next/navigation";
+
 
 import MobileSection from "@/components/MobileSection";
 
@@ -61,6 +61,13 @@ export default function Home() {
   if (urlLang === "cz" || urlLang === "en") {
     setLanguage(urlLang);
     localStorage.setItem("preferredLanguage", urlLang);
+  } else {
+    const saved = localStorage.getItem("preferredLanguage");
+    if (saved === "cz" || saved === "en") {
+      setLanguage(saved);
+    } else {
+      setLanguage("en"); // fallback default
+    }
   }
 }, []);
 
