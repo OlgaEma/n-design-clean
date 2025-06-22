@@ -39,7 +39,7 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
               alt={`${project.title} Render ${index + 1}`}
               width={800} // Or adjust based on your layout
               height={600}
-              priority
+              priority={index === 0}
               className="rounded shadow object-cover"
             />
           ))}
@@ -56,7 +56,7 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
               alt={`${project.title} Plan ${index + 1}`}
               width={800} // adjust to your image dimensions
               height={600}
-              priority
+              priority={index === 0}
               className="rounded shadow object-cover"
             />
           ))}

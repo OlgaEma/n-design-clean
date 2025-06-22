@@ -41,7 +41,7 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [showComingSoon, setShowComingSoon] = useState(false);
 
-  const searchParams = useSearchParams();
+  
 
   const toggleLanguage = () => {
     const newLang = language === "en" ? "cz" : "en";
@@ -55,13 +55,14 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const urlLang = searchParams.get("lang");
+  const url = new URL(window.location.href);
+  const urlLang = url.searchParams.get("lang");
 
-    if (urlLang === "cz" || urlLang === "en") {
-      setLanguage(urlLang);
-      localStorage.setItem("preferredLanguage", urlLang);
-    }
-  }, [searchParams]);
+  if (urlLang === "cz" || urlLang === "en") {
+    setLanguage(urlLang);
+    localStorage.setItem("preferredLanguage", urlLang);
+  }
+}, []);
 
   // Save on change
   useEffect(() => {
