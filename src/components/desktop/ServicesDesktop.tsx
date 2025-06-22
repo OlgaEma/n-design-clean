@@ -132,11 +132,7 @@ export default function ServicesDesktop({
               />
             </div>
 
-            {showComingSoon && (
-              <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white text-black px-6 py-2 rounded-md shadow-lg text-sm font-semibold z-50">
-                {t.web.comingSoon}
-              </div>
-            )}
+            
 
             <img
               src="/picture4.png"

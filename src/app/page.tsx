@@ -145,14 +145,16 @@ export default function Home() {
 
   const contactContent = getContactContent(language);
   const aboutContent = getAboutContent(language);
-  const servicesContent = getServicesContent(language, (id, fromId) => {
-    if (id === "web") {
-      setShowComingSoon(true);
-      setTimeout(() => setShowComingSoon(false), 2500);
-    } else {
-      handleNavClick(id, fromId);
-    }
-  });
+  const servicesContent = isMobile
+  ? getServicesContent(language, (id, fromId) => {
+      if (id === "web") {
+        setShowComingSoon(true);
+        setTimeout(() => setShowComingSoon(false), 2500);
+      } else {
+        handleNavClick(id, fromId);
+      }
+    })
+  : getServicesContent(language);
 
   return (
     <main className="relative bg-black text-[#FFFFFF] font-montserrat">

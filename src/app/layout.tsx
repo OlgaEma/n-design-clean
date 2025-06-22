@@ -12,7 +12,8 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "N Design – Architecture & Web Studio",
-  description: "Creative architectural and web design services based in Prague. Personalized solutions, professional visuals, and modern digital presence.",
+  description: "Creative architectural and web design services based in Prague.",
+  metadataBase: new URL("https://www.ndesign.space"), // ✅ Add this line
   openGraph: {
     title: "N Design – Architecture & Web Studio",
     description: "Explore our architectural and web design projects. Based in Prague, delivering worldwide.",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "N Design",
     images: [
       {
-        url: "/ND_white_02@4x.png", // ✅ You can replace this with any image from /public
+        url: "/ND_white_02@4x.png", // This becomes https://www.ndesign.space/ND_white_02@4x.png
         width: 800,
         height: 600,
         alt: "N Design Logo",
