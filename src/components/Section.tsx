@@ -15,6 +15,7 @@ interface SectionProps {
 export default function Section({
   id,
   refProp,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   trigger = true,
   customLayout = false,
   leftContent,

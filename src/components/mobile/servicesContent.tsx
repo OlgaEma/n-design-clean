@@ -40,7 +40,10 @@ export default function getServicesContent(language: Language, handleNavClick?: 
       <ServiceCard
         title={t.web.title}
         description={t.web.description}
-        onClick={() => handleNavClick?.("web", "services")}
+       onClick={() => {
+  console.log("💥 Web card clicked");
+  handleNavClick?.("web", "services");
+}}
       />
 
       <div className="text-sm flex flex-col gap-3 text-left max-w-prose px-4">

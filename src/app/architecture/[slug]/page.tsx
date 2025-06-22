@@ -3,20 +3,24 @@ import { useSearchParams } from "next/navigation";
 import { projects as projectsEn } from "@/data/projects.en";
 import { projects as projectsCz } from "@/data/projects.cz";
 import { notFound } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import Image from "next/image";
 
 type Props = {
   params: { slug: string };
 };
 
-export default function ProjectPage({ params }: Props) {
+import { use } from "react";
+
+export default function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params); // ✅ unwrap the slug safely
+
   const searchParams = useSearchParams();
   const lang = searchParams.get("lang") === "cz" ? "cz" : "en";
 
   const project = (lang === "cz" ? projectsCz : projectsEn).find(
-    (p) => p.slug === params.slug
+    (p) => p.slug === slug
   );
-
   useEffect(() => {
     localStorage.setItem("preferredLanguage", lang);
   }, [lang]);
@@ -31,11 +35,14 @@ export default function ProjectPage({ params }: Props) {
       {project.renders?.length > 0 && (
         <div className="mb-6 space-y-4">
           {project.renders.map((src, index) => (
-            <img
+            <Image
               key={`render-${index}`}
               src={src}
               alt={`${project.title} Render ${index + 1}`}
-              className="rounded shadow"
+              width={800} // Or adjust based on your layout
+              height={600}
+              priority
+              className="rounded shadow object-cover"
             />
           ))}
         </div>
@@ -45,11 +52,14 @@ export default function ProjectPage({ params }: Props) {
       {project.plans?.length > 0 && (
         <div className="mb-6 space-y-4">
           {project.plans.map((src, index) => (
-            <img
+            <Image
               key={`plan-${index}`}
               src={src}
               alt={`${project.title} Plan ${index + 1}`}
-              className="rounded shadow"
+              width={800} // adjust to your image dimensions
+              height={600}
+              priority
+              className="rounded shadow object-cover"
             />
           ))}
         </div>

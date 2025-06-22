@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import lang from "@/data/lang";
 import { useEffect, useRef, useState } from "react";
 import Section from "@/components/Section";
@@ -24,13 +25,15 @@ export default function Home() {
   const servicesSectionRef = useRef<HTMLDivElement>(null);
   const architectureSectionRef = useRef<HTMLDivElement>(null);
   const contactSectionRef = useRef<HTMLDivElement>(null);
-  const [lastSection, setLastSection] = useState<string | null>(null);
+  const [_, setLastSection] = useState<string | null>(null);
 
   const [triggerAboutAnimation, setTriggerAboutAnimation] = useState(false);
   const [triggerServicesAnimation, setTriggerServicesAnimation] =
     useState(false);
   const [triggerArchitectureAnimation, setTriggerArchitectureAnimation] =
     useState(false);
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [triggerWebAnimation, setTriggerWebAnimation] = useState(false);
   const [triggerContactAnimation, setTriggerContactAnimation] = useState(false);
   const [language, setLanguage] = useState<"en" | "cz">("en");
@@ -38,7 +41,7 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [showComingSoon, setShowComingSoon] = useState(false);
 
-  const router = useRouter();
+  
 const searchParams = useSearchParams();
 
   const toggleLanguage = () => {
@@ -136,11 +139,23 @@ useEffect(() => {
 
   const contactContent = getContactContent(language);
   const aboutContent = getAboutContent(language);
-  const servicesContent = getServicesContent(language);
+  const servicesContent = getServicesContent(language, (id, fromId) => {
+  if (id === "web") {
+    setShowComingSoon(true);
+    setTimeout(() => setShowComingSoon(false), 2500);
+  } else {
+    handleNavClick(id, fromId);
+  }
+});
   
 
   return (
     <main className="relative bg-black text-[#FFFFFF] font-montserrat">
+      {showComingSoon && (
+  <div className="fixed top-10 left-1/2 -translate-x-1/2 px-6 py-3 bg-white text-black text-lg rounded shadow-lg z-[9999]">
+    Coming Soon
+  </div>
+)}
       <div
         onClick={toggleLanguage}
         className="absolute top-15 right-25 z-50 text-sm font-semibold tracking-wide cursor-pointer hover:scale-105 transition"
@@ -151,18 +166,21 @@ useEffect(() => {
       <section className="flex flex-col h-screen w-full items-center justify-center gap-[5vw] md:gap-[8vw] lg:gap-[10vw]">
         <div className="relative w-[35vw] md:w-[20vw] lg:w-[15vw]  bg-black">
           <div className="absolute top-1/2  left-1/2 w-16 h-16 md:w-12 md:h-12 lg:w-10 lg:h-10 bg-[#FFFFFF] rounded-full z-0 animate-expandCircleFadeIn origin-center transform -translate-x-1/2 -translate-y-1/2" />
-          <img
-            src="/background1.png"
-            alt="Animated Logo"
-            className="block relative z-20 logo-img"
-            style={{
-              width: "200%",
-              maxWidth: "none",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-            }}
-          />
+          <Image
+  src="/background1.png"
+  alt="Animated Logo"
+  width={2000} // you can adjust based on your asset size
+  height={1000}
+  priority
+  className="block relative z-20 logo-img"
+  style={{
+    width: "200%",
+    maxWidth: "none",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+  }}
+/>
         </div>
 
         <nav className="flex gap-[5vw] md:gap-[8vw] lg:gap-[10vw] text-[3vw] md:text-[2vw] lg:text-[1.2vw] opacity-0 animate-fadeInNav">
@@ -237,7 +255,7 @@ useEffect(() => {
       )}
       {isMobile ? (
         <div id="architecture">
-          <ArchitectureMobile handleNavClick={handleNavClick} language={language} />
+          <ArchitectureMobile  language={language} />
         </div>
       ) : (
         <Section
@@ -350,7 +368,7 @@ useEffect(() => {
               <div className={`relative z-10 w-full px-4 flex flex-col items-center gap-20 text-white font-montserrat ${triggerContactAnimation ? 'fade-in-delayed' : 'opacity-0'}`}>
                 
                 <div className="px-4 flex flex-col gap-4 text-center text-lg lg:text-sm xl:text-lg">
-                  <p>{contactContent.leftContent}</p>
+                  {contactContent.leftContent}
 
                 </div>
               </div>

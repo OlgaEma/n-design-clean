@@ -17,6 +17,7 @@ export default function MobileSection({
   rightContentBlocks = [],
   logo,
   background = 'black',
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   handleNavClick,
 }: MobileSectionProps) {
   return (
