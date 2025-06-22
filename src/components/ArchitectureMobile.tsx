@@ -16,7 +16,7 @@ export default function ArchitectureMobile({ language }: Props) {
     <div className="w-full px-4 py-10 flex flex-col items-center gap-10 bg-black text-white">
       <h2 className="text-3xl font-bold text-center">Architecture</h2>
 
-      {projects.map((project, index) => (
+      {projects.map((project) => (
         <Link
           href={`/architecture/${project.slug}?lang=${language}`}
           key={project.slug}

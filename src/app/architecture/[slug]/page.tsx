@@ -6,9 +6,7 @@ import { notFound } from "next/navigation";
 import { useEffect } from "react";
 import Image from "next/image";
 
-type Props = {
-  params: { slug: string };
-};
+
 
 import { use } from "react";
 

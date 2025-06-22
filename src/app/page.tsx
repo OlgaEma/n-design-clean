@@ -8,7 +8,7 @@ import ContactForm from "@/components/ContactForm";
 import ArchitectureGrid from "@/components/ArchitectureGrid";
 
 import ReferencesList from "@/components/ReferencesList";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 import MobileSection from "@/components/MobileSection";
 
@@ -19,13 +19,13 @@ import AboutDesktop from "@/components/desktop/AboutDesktop";
 import getServicesContent from "@/components/mobile/servicesContent";
 import ServicesDesktop from "@/components/desktop/ServicesDesktop";
 
-
 export default function Home() {
   const aboutSectionRef = useRef<HTMLDivElement>(null);
   const servicesSectionRef = useRef<HTMLDivElement>(null);
   const architectureSectionRef = useRef<HTMLDivElement>(null);
   const contactSectionRef = useRef<HTMLDivElement>(null);
-  const [_, setLastSection] = useState<string | null>(null);
+  //eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [lastSection, setLastSection] = useState<string | null>(null);
 
   const [triggerAboutAnimation, setTriggerAboutAnimation] = useState(false);
   const [triggerServicesAnimation, setTriggerServicesAnimation] =
@@ -33,7 +33,7 @@ export default function Home() {
   const [triggerArchitectureAnimation, setTriggerArchitectureAnimation] =
     useState(false);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [triggerWebAnimation, setTriggerWebAnimation] = useState(false);
   const [triggerContactAnimation, setTriggerContactAnimation] = useState(false);
   const [language, setLanguage] = useState<"en" | "cz">("en");
@@ -41,34 +41,32 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [showComingSoon, setShowComingSoon] = useState(false);
 
-  
-const searchParams = useSearchParams();
+  const searchParams = useSearchParams();
 
   const toggleLanguage = () => {
-  const newLang = language === "en" ? "cz" : "en";
-  localStorage.setItem("preferredLanguage", newLang);
+    const newLang = language === "en" ? "cz" : "en";
+    localStorage.setItem("preferredLanguage", newLang);
 
-  const url = new URL(window.location.href);
-  url.searchParams.set("lang", newLang);
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", newLang);
 
-  // This reloads the page and sets URL properly
-  window.location.href = url.toString();
-};
-  
+    // This reloads the page and sets URL properly
+    window.location.href = url.toString();
+  };
 
-useEffect(() => {
-  const urlLang = searchParams.get("lang");
+  useEffect(() => {
+    const urlLang = searchParams.get("lang");
 
-  if (urlLang === "cz" || urlLang === "en") {
-    setLanguage(urlLang);
-    localStorage.setItem("preferredLanguage", urlLang);
-  }
-}, [searchParams]);
+    if (urlLang === "cz" || urlLang === "en") {
+      setLanguage(urlLang);
+      localStorage.setItem("preferredLanguage", urlLang);
+    }
+  }, [searchParams]);
 
   // Save on change
   useEffect(() => {
-  localStorage.setItem("preferredLanguage", language);
-}, [language]);
+    localStorage.setItem("preferredLanguage", language);
+  }, [language]);
   const t = lang[language].hero;
 
   useEffect(() => {
@@ -140,22 +138,21 @@ useEffect(() => {
   const contactContent = getContactContent(language);
   const aboutContent = getAboutContent(language);
   const servicesContent = getServicesContent(language, (id, fromId) => {
-  if (id === "web") {
-    setShowComingSoon(true);
-    setTimeout(() => setShowComingSoon(false), 2500);
-  } else {
-    handleNavClick(id, fromId);
-  }
-});
-  
+    if (id === "web") {
+      setShowComingSoon(true);
+      setTimeout(() => setShowComingSoon(false), 2500);
+    } else {
+      handleNavClick(id, fromId);
+    }
+  });
 
   return (
     <main className="relative bg-black text-[#FFFFFF] font-montserrat">
       {showComingSoon && (
-  <div className="fixed top-10 left-1/2 -translate-x-1/2 px-6 py-3 bg-white text-black text-lg rounded shadow-lg z-[9999]">
-    Coming Soon
-  </div>
-)}
+        <div className="fixed top-10 left-1/2 -translate-x-1/2 px-6 py-3 bg-white text-black text-lg rounded shadow-lg z-[9999]">
+          Coming Soon
+        </div>
+      )}
       <div
         onClick={toggleLanguage}
         className="absolute top-15 right-25 z-50 text-sm font-semibold tracking-wide cursor-pointer hover:scale-105 transition"
@@ -167,20 +164,20 @@ useEffect(() => {
         <div className="relative w-[35vw] md:w-[20vw] lg:w-[15vw]  bg-black">
           <div className="absolute top-1/2  left-1/2 w-16 h-16 md:w-12 md:h-12 lg:w-10 lg:h-10 bg-[#FFFFFF] rounded-full z-0 animate-expandCircleFadeIn origin-center transform -translate-x-1/2 -translate-y-1/2" />
           <Image
-  src="/background1.png"
-  alt="Animated Logo"
-  width={2000} // you can adjust based on your asset size
-  height={1000}
-  priority
-  className="block relative z-20 logo-img"
-  style={{
-    width: "200%",
-    maxWidth: "none",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-  }}
-/>
+            src="/background1.png"
+            alt="Animated Logo"
+            width={2000} // you can adjust based on your asset size
+            height={1000}
+            priority
+            className="block relative z-20 logo-img"
+            style={{
+              width: "200%",
+              maxWidth: "none",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          />
         </div>
 
         <nav className="flex gap-[5vw] md:gap-[8vw] lg:gap-[10vw] text-[3vw] md:text-[2vw] lg:text-[1.2vw] opacity-0 animate-fadeInNav">
@@ -255,7 +252,7 @@ useEffect(() => {
       )}
       {isMobile ? (
         <div id="architecture">
-          <ArchitectureMobile  language={language} />
+          <ArchitectureMobile language={language} />
         </div>
       ) : (
         <Section
@@ -363,13 +360,14 @@ useEffect(() => {
               {triggerContactAnimation && (
                 <div className="absolute top-0 left-0 w-[8%] h-full bg-[#FFFFFF] animate-slideDown z-0" />
               )}
-              
-            
-              <div className={`relative z-10 w-full px-4 flex flex-col items-center gap-20 text-white font-montserrat ${triggerContactAnimation ? 'fade-in-delayed' : 'opacity-0'}`}>
-                
+
+              <div
+                className={`relative z-10 w-full px-4 flex flex-col items-center gap-20 text-white font-montserrat ${
+                  triggerContactAnimation ? "fade-in-delayed" : "opacity-0"
+                }`}
+              >
                 <div className="px-4 flex flex-col gap-4 text-center text-lg lg:text-sm xl:text-lg">
                   {contactContent.leftContent}
-
                 </div>
               </div>
             </div>
