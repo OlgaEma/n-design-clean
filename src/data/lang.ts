@@ -79,9 +79,9 @@ const lang = {
         "We are a team of architects and web developers who believe that every space — physical or digital — should inspire, serve, and reflect its purpose. With attention to detail and a personal approach, we bring your vision to life.",
       ],
       natasha: {
-        name: "Spec. MA Arch",
+        name: "Nataša Manakoski",
         image: "Natasha.jpg",
-        title: "Co-owner & Lead Architect",
+        title: "Spec MA Arch\nCo-owner & Lead Architect",
         quote:
           "My job is my passion. I love a good challenge, but I feel most at home designing residential spaces, houses, and buildings — from the initial concept all the way to detailed design. From the very beginning, my projects take shape as 3D models, as function and form are equally important to me. My mission is simple: to make every next project my best one yet.",
         paragraphs: [

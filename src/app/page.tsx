@@ -250,6 +250,7 @@ export default function Home() {
           handleNavClick={handleNavClick}
         />
       ) : (
+        
         <ServicesDesktop
           refProp={servicesSectionRef}
           trigger={triggerServicesAnimation}

@@ -32,6 +32,7 @@ export default function ServicesDesktop({
         {trigger && (
           <div className="absolute top-0 left-0 w-[8%] h-full bg-white animate-slideDown z-0" />
         )}
+        
         <div
           className="relative z-10 gap-40 w-full h-full py-20 flex flex-col justify-start
          text-white font-montserrat"
@@ -66,6 +67,8 @@ export default function ServicesDesktop({
           <>
             <div className="absolute top-0 left-0 w-[2px] h-1/2 bg-white animate-lineDown z-10" />
             <div className="absolute bottom-0 left-0 w-[2px] h-1/2 bg-white animate-lineUp z-10" />
+            
+  <div className="w-full h-[2px] bg-white animate-horizontalSplit" />
 
             <div className="absolute top-1/2 left-1/2 w-[2px] h-full bg-white animate-lineUpFromCenter origin-bottom z-10" />
             <div className="absolute top-1/2 left-1/2 w-[2px] h-full bg-white animate-lineDownFromCenter origin-top z-10" />
