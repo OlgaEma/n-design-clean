@@ -102,7 +102,7 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
                   {content.natasha.title}
                 </p>
                 <blockquote
-                  className={`italic text-sm border px-2 py-2 border-white text-center rounded max-w-[80%] ${
+                  className={`italic text-sm border px-1 py-2 border-white text-center rounded max-w-[80%] ${
                     trigger ? "fade-in-delayed" : "opacity-0"
                   }`}
                   style={{ animationDelay: trigger ? "0.7s" : "0s" }}
@@ -171,7 +171,7 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
                   {content.nedeljko.title}
                 </p>
                 <blockquote
-                  className={`italic text-sm border px-2 py-2 border-white text-center rounded max-w-[80%] ${
+                  className={`italic text-sm border px-1 py-2 border-white text-center rounded max-w-[80%] ${
                     trigger ? "fade-in-delayed" : "opacity-0"
                   }`}
                   style={trigger ? { animationDelay: "1.1s" } : {}}
