@@ -75,7 +75,7 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
 
           <div className="relative z-20 w-full h-full grid grid-rows-2 gap-12 px-4 py-4 overflow-hidden">
             {/* Natasha Row */}
-            <div className="grid grid-cols-3 gap-6 pt-8 items-start">
+            <div className="grid grid-cols-3 gap-6 pt-2 items-start">
               <div className="flex flex-col items-center gap-4 col-span-1">
                 <div
                   className={`relative w-[8vw] aspect-square min-w-[130px] rounded-full overflow-hidden ${
@@ -126,7 +126,7 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
             </div>
 
             {/* Nedeljko Row */}
-            <div className="grid grid-cols-3 gap-6 pt-8 items-start group">
+            <div className="grid grid-cols-3 gap-6 pt-2 items-start group">
               <div
                 className={`col-span-2 h-full flex items-center justify-center group ${
                   trigger ? "fade-in-delayed" : "opacity-0"
