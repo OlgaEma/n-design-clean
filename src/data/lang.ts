@@ -80,7 +80,7 @@ const lang = {
       ],
       natasha: {
         name: "Nataša Manakoski",
-        image: "Natasha.jpg",
+        image: "/Natasha.jpg",
         title: "Spec MA Arch\nCo-owner & Lead Architect",
         quote:
           "My job is my passion. I love a good challenge, but I feel most at home designing residential spaces, houses, and buildings — from the initial concept all the way to detailed design. From the very beginning, my projects take shape as 3D models, as function and form are equally important to me. My mission is simple: to make every next project my best one yet.",
@@ -92,7 +92,7 @@ const lang = {
       },
       nedeljko: {
         name: "Nedeljko Danilović",
-        image: "Nedeljko1.jpg",
+        image: "/Nedeljko1.jpg",
         title: "IT Engineer\nCo-owner & Lead Web Developer",
         quote:
           "I believe great digital experiences start with clear, functional code. I enjoy building clean, modern websites that follow current trends, but never at the cost of usability, speed, or simplicity. I love a good challenge and always strive to find smart, efficient solutions for every project.",
@@ -187,7 +187,7 @@ const lang = {
       ],
       natasha: {
         name: "Spec. Ing. arch.",
-        image: "Natasha.jpg",
+        image: "/Natasha.jpg",
         title: "Spolumajitelka & hlavní architektka",
         quote:
           "Moje práce je mou vášní. Mám ráda výzvy, ale nejlépe se cítím při navrhování obytných prostor, domů a budov — od prvotního konceptu až po detailní návrh. Od samého začátku tvořím projekty jako 3D modely, protože funkce i forma jsou pro mě stejně důležité. Mým cílem je jednoduchý: každý další projekt udělat tím nejlepším.",
@@ -199,7 +199,7 @@ const lang = {
       },
       nedeljko: {
         name: "Nedeljko Danilović",
-        image: "Nedeljko1.jpg",
+        image: "/Nedeljko1.jpg",
         title: "IT inženýr\nSpolumajitel & hlavní webový vývojář",
         quote:
           "Věřím, že skvělé digitální zážitky začínají čistým, funkčním kódem. Rád vytvářím moderní weby, které odpovídají současným trendům, ale nikdy ne na úkor použitelnosti, rychlosti nebo jednoduchosti. Mám rád výzvy a vždy se snažím najít chytrá a efektivní řešení pro každý projekt.",

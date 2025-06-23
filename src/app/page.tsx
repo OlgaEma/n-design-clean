@@ -9,7 +9,6 @@ import ArchitectureGrid from "@/components/ArchitectureGrid";
 
 import ReferencesList from "@/components/ReferencesList";
 
-
 import MobileSection from "@/components/MobileSection";
 
 import getContactContent from "@/components/mobile/contactContent";
@@ -41,8 +40,6 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [showComingSoon, setShowComingSoon] = useState(false);
 
-  
-
   const toggleLanguage = () => {
     const newLang = language === "en" ? "cz" : "en";
     localStorage.setItem("preferredLanguage", newLang);
@@ -55,21 +52,21 @@ export default function Home() {
   };
 
   useEffect(() => {
-  const url = new URL(window.location.href);
-  const urlLang = url.searchParams.get("lang");
+    const url = new URL(window.location.href);
+    const urlLang = url.searchParams.get("lang");
 
-  if (urlLang === "cz" || urlLang === "en") {
-    setLanguage(urlLang);
-    localStorage.setItem("preferredLanguage", urlLang);
-  } else {
-    const saved = localStorage.getItem("preferredLanguage");
-    if (saved === "cz" || saved === "en") {
-      setLanguage(saved);
+    if (urlLang === "cz" || urlLang === "en") {
+      setLanguage(urlLang);
+      localStorage.setItem("preferredLanguage", urlLang);
     } else {
-      setLanguage("en"); // fallback default
+      const saved = localStorage.getItem("preferredLanguage");
+      if (saved === "cz" || saved === "en") {
+        setLanguage(saved);
+      } else {
+        setLanguage("en"); // fallback default
+      }
     }
-  }
-}, []);
+  }, []);
 
   // Save on change
   useEffect(() => {
@@ -146,21 +143,21 @@ export default function Home() {
   const contactContent = getContactContent(language);
   const aboutContent = getAboutContent(language);
   const servicesContent = isMobile
-  ? getServicesContent(language, (id, fromId) => {
-      if (id === "web") {
-        setShowComingSoon(true);
-        setTimeout(() => setShowComingSoon(false), 2500);
-      } else {
-        handleNavClick(id, fromId);
-      }
-    })
-  : getServicesContent(language);
+    ? getServicesContent(language, (id, fromId) => {
+        if (id === "web") {
+          setShowComingSoon(true);
+          setTimeout(() => setShowComingSoon(false), 2500);
+        } else {
+          handleNavClick(id, fromId);
+        }
+      })
+    : getServicesContent(language);
 
   return (
     <main className="relative bg-black text-[#FFFFFF] font-montserrat">
       {showComingSoon && (
         <div className="fixed top-10 left-1/2 -translate-x-1/2 px-6 py-3 bg-white text-black text-lg rounded shadow-lg z-[9999]">
-          Coming Soon
+          {language === "cz" ? "Již brzy" : "Coming Soon"}
         </div>
       )}
       <div
@@ -252,13 +249,11 @@ export default function Home() {
           handleNavClick={handleNavClick}
         />
       ) : (
-        
         <ServicesDesktop
           refProp={servicesSectionRef}
           trigger={triggerServicesAnimation}
           language={language}
           handleComingSoon={handleComingSoon}
-          
         />
       )}
       {isMobile ? (
