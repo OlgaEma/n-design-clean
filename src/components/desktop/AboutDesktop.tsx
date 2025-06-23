@@ -72,7 +72,7 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
               <div className="absolute top-1/2 left-0 h-[2px] w-0 bg-white animate-horizontalSplit z-10" />
             </>
           )}
-          <div className="absolute inset-0 z-20 flex flex-col justify-between px-10 py-10 overflow-y-auto">
+          <div className="relative z-20 flex flex-row px-10 py-10">
             {/* Natasha */}
             <div className="h-1/2 px-5 flex flex-row justify-around gap-5 group">
               <div className="flex flex-col items-center gap-6">
