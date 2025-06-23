@@ -73,15 +73,15 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
             </>
           )}
 
-          <div className="relative z-20 w-full h-full grid grid-rows-2 gap-16 px-4 py-4 overflow-hidden ">
+          <div className="relative z-20 w-full h-full grid grid-rows-2 gap-12 px-4 py-4 overflow-hidden">
             {/* Natasha Row */}
-            <div className="grid grid-cols-3 gap-6 items-center">
+            <div className="grid grid-cols-3 gap-6 pt-8 items-start">
               <div className="flex flex-col items-center gap-4 col-span-1">
                 <div
                   className={`relative w-[8vw] aspect-square min-w-[130px] rounded-full overflow-hidden ${
                     trigger ? "fade-in-delayed" : "opacity-0"
                   }`}
-                  style={{ animationDelay: trigger ? "0.3s" : "0s" }}
+                  style={{ animationDelay: "0.3s" }}
                 >
                   <Image
                     src={content.natasha.image}
@@ -95,27 +95,27 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
                   className={`text-center text-sm font-semibold whitespace-pre-line ${
                     trigger ? "fade-in-delayed" : "opacity-0"
                   }`}
-                  style={{ animationDelay: trigger ? "0.5s" : "0s" }}
+                  style={{ animationDelay: "0.5s" }}
                 >
                   {content.natasha.name}
                   {"\n"}
                   {content.natasha.title}
                 </p>
                 <blockquote
-                  className={`italic text-sm border px-1 py-2 border-white text-center rounded max-w-[80%] ${
+                  className={`italic text-sm border px-2 py-2 border-white text-center rounded max-w-[80%] ${
                     trigger ? "fade-in-delayed" : "opacity-0"
                   }`}
-                  style={{ animationDelay: trigger ? "0.7s" : "0s" }}
+                  style={{ animationDelay: "0.7s" }}
                 >
                   {content.natasha.quote}
                 </blockquote>
               </div>
 
               <div
-                className={`col-span-2 flex flex-col gap-3 items-center justify-center group ${
+                className={`col-span-2 h-full flex items-center justify-center group ${
                   trigger ? "fade-in-delayed" : "opacity-0"
                 }`}
-                style={{ animationDelay: trigger ? "0.9s" : "0s" }}
+                style={{ animationDelay: "0.9s" }}
               >
                 <div className="text-sm max-w-prose text-center opacity-0 group-hover:opacity-100 transition duration-300 text-lg lg:text-sm xl:text-lg">
                   {content.natasha.paragraphs.map((text, i) => (
@@ -126,17 +126,15 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
             </div>
 
             {/* Nedeljko Row */}
-            <div className="grid grid-cols-3 gap-6 items-center group">
-              {/* Hover text left (col-span-2) */}
-              <div className="col-span-2 flex flex-col gap-3 items-center justify-center group">
-                <div
-                  className={`text-sm text-center text-white max-w-prose transition-opacity duration-500 ${
-                    trigger ? "fade-in-delayed" : "opacity-0"
-                  }`}
-                  style={trigger ? { animationDelay: "1.2s" } : {}}
-                >
-                  {/* Inner div handles hover effect separately */}
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg lg:text-sm xl:text-lg">
+            <div className="grid grid-cols-3 gap-6 pt-8 items-start group">
+              <div
+                className={`col-span-2 h-full flex items-center justify-center group ${
+                  trigger ? "fade-in-delayed" : "opacity-0"
+                }`}
+                style={{ animationDelay: "1.2s" }}
+              >
+                <div className="flex justify-center items-center h-full">
+                  <div className="text-sm max-w-prose text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg lg:text-sm xl:text-lg">
                     {content.nedeljko.paragraphs.map((text, i) => (
                       <p key={i}>{text}</p>
                     ))}
@@ -144,13 +142,12 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
                 </div>
               </div>
 
-              {/* Photo, Name, Title, Quote (col-span-1) */}
               <div className="flex flex-col items-center gap-4 col-span-1">
                 <div
                   className={`relative w-[8vw] aspect-square min-w-[130px] rounded-full overflow-hidden ${
                     trigger ? "fade-in-delayed" : "opacity-0"
                   }`}
-                  style={trigger ? { animationDelay: "0.9s" } : {}}
+                  style={{ animationDelay: "0.9s" }}
                 >
                   <Image
                     src={content.nedeljko.image}
@@ -164,17 +161,17 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
                   className={`text-center text-sm font-semibold whitespace-pre-line ${
                     trigger ? "fade-in-delayed" : "opacity-0"
                   }`}
-                  style={trigger ? { animationDelay: "1s" } : {}}
+                  style={{ animationDelay: "1s" }}
                 >
                   {content.nedeljko.name}
                   {"\n"}
                   {content.nedeljko.title}
                 </p>
                 <blockquote
-                  className={`italic text-sm border px-1 py-2 border-white text-center rounded max-w-[80%] ${
+                  className={`italic text-sm border px-2 py-2 border-white text-center rounded max-w-[80%] ${
                     trigger ? "fade-in-delayed" : "opacity-0"
                   }`}
-                  style={trigger ? { animationDelay: "1.1s" } : {}}
+                  style={{ animationDelay: "1.1s" }}
                 >
                   {content.nedeljko.quote}
                 </blockquote>
