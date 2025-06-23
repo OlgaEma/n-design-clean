@@ -73,104 +73,113 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
             </>
           )}
 
-          <div className="absolute inset-0 z-20 flex flex-col h-full overflow-hidden">
-            {/* Natasha */}
-            <div className="h-1/2 flex items-center justify-center px-6">
-              <div className="flex flex-col items-center text-center gap-4 w-full max-w-md">
-                <Image
-                  src={content.natasha.image}
-                  alt="Natasha"
-                  width={180}
-                  height={180}
-                  priority
-                  className={`rounded-full object-cover shadow-md shrink-0 ${
-                    trigger ? "fade-in-delayed" : "opacity-0"
-                  }`}
-                  style={{
-                    animationDelay: trigger ? "0.6s" : "0s",
-                  }}
-                />
-                <p
-                  className={`text-lg font-semibold whitespace-pre-line ${
-                    trigger ? "fade-in-delayed" : "opacity-0"
-                  }`}
-                  style={trigger ? { animationDelay: "0.9s" } : {}}
-                >
-                  {content.natasha.name}
-                  {"\n"}
-                  {content.natasha.title}
-                </p>
-                <blockquote
-                  className={`italic text-sm px-4 py-2 border-l-4 border-white rounded bg-white/10 max-w-xs ${
-                    trigger ? "fade-in-delayed" : "opacity-0"
-                  }`}
-                  style={trigger ? { animationDelay: "1.2s" } : {}}
-                >
-                  {content.natasha.quote}
-                </blockquote>
-                <div
-                  className={`text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 max-h-[100px] overflow-y-auto ${
-                    trigger ? "fade-in-delayed" : ""
-                  }`}
-                  style={trigger ? { animationDelay: "1.4s" } : {}}
-                >
-                  {content.natasha.paragraphs.map((p, i) => (
-                    <p key={i} className="mb-2">
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
+          <div className="relative z-20 w-full h-full grid grid-rows-2 gap-8 px-4 py-4 overflow-hidden ">
+            {/* Natasha Row */}
+            <div className="grid grid-cols-3 gap-6 items-center">
+  <div className="flex flex-col items-center gap-6 col-span-1">
+    <div
+      className={`relative w-[8vw] aspect-square min-w-[130px] rounded-full overflow-hidden ${
+        trigger ? "fade-in-delayed" : "opacity-0"
+      }`}
+      style={{ animationDelay: trigger ? "0.3s" : "0s" }}
+    >
+      <Image
+        src={content.natasha.image}
+        alt="Natasha"
+        fill
+        priority
+        className="object-cover object-top"
+      />
+    </div>
+    <p
+      className={`text-center text-sm font-semibold whitespace-pre-line ${
+        trigger ? "fade-in-delayed" : "opacity-0"
+      }`}
+      style={{ animationDelay: trigger ? "0.5s" : "0s" }}
+    >
+      {content.natasha.name}
+      {"\n"}
+      {content.natasha.title}
+    </p>
+    <blockquote
+      className={`italic text-sm border px-2 py-2 border-white text-center rounded max-w-[80%] ${
+        trigger ? "fade-in-delayed" : "opacity-0"
+      }`}
+      style={{ animationDelay: trigger ? "0.7s" : "0s" }}
+    >
+      {content.natasha.quote}
+    </blockquote>
+  </div>
 
-            {/* Nedeljko */}
-            <div className="h-1/2 flex items-center justify-center px-6">
-              <div className="flex flex-col items-center text-center gap-4 w-full max-w-md">
-                <Image
-                  src={content.nedeljko.image}
-                  alt="Nedeljko"
-                  width={180}
-                  height={180}
-                  priority
-                  className={`rounded-full object-cover object-top shadow-md shrink-0 ${
-                    trigger ? "fade-in-delayed" : "opacity-0"
-                  }`}
-                  style={{
-                    animationDelay: trigger ? "0.9s" : "0s",
-                  }}
-                />
-                <p
-                  className={`text-lg font-semibold whitespace-pre-line ${
-                    trigger ? "fade-in-delayed" : "opacity-0"
-                  }`}
-                  style={trigger ? { animationDelay: "1.1s" } : {}}
-                >
-                  {content.nedeljko.name}
-                  {"\n"}
-                  {content.nedeljko.title}
-                </p>
-                <blockquote
-                  className={`italic text-sm px-4 py-2 border-l-4 border-white rounded bg-white/10 max-w-xs ${
-                    trigger ? "fade-in-delayed" : "opacity-0"
-                  }`}
-                  style={trigger ? { animationDelay: "1.3s" } : {}}
-                >
-                  {content.nedeljko.quote}
-                </blockquote>
-                <div
-                  className={`text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 max-h-[100px] overflow-y-auto ${
-                    trigger ? "fade-in-delayed" : ""
-                  }`}
-                  style={trigger ? { animationDelay: "1.5s" } : {}}
-                >
-                  {content.nedeljko.paragraphs.map((p, i) => (
-                    <p key={i} className="mb-2">
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
+  <div
+    className={`col-span-2 flex flex-col gap-3 items-center justify-center group ${
+      trigger ? "fade-in-delayed" : "opacity-0"
+    }`}
+    style={{ animationDelay: trigger ? "0.9s" : "0s" }}
+  >
+    <div className="text-sm max-w-prose text-center opacity-0 group-hover:opacity-100 transition duration-300 text-lg lg:text-sm xl:text-lg">
+      {content.natasha.paragraphs.map((text, i) => (
+        <p key={i}>{text}</p>
+      ))}
+    </div>
+  </div>
+</div>
+
+           {/* Nedeljko Row */}
+<div className="grid grid-cols-3 gap-6 items-center group">
+  {/* Hover text left (col-span-2) */}
+  <div className="col-span-2 flex flex-col gap-3 items-center justify-center group">
+  <div
+    className={`text-sm text-center text-white max-w-prose transition-opacity duration-500 ${
+      trigger ? "fade-in-delayed" : "opacity-0"
+    }`}
+    style={trigger ? { animationDelay: "1.2s" } : {}}
+  >
+    {/* Inner div handles hover effect separately */}
+    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg lg:text-sm xl:text-lg">
+      {content.nedeljko.paragraphs.map((text, i) => (
+        <p key={i}>{text}</p>
+      ))}
+    </div>
+  </div>
+</div>
+
+  {/* Photo, Name, Title, Quote (col-span-1) */}
+  <div className="flex flex-col items-center gap-4 col-span-1">
+    <div
+      className={`relative w-[8vw] aspect-square min-w-[130px] rounded-full overflow-hidden ${
+        trigger ? "fade-in-delayed" : "opacity-0"
+      }`}
+      style={trigger ? { animationDelay: "0.9s" } : {}}
+    >
+      <Image
+        src={content.nedeljko.image}
+        alt="Nedeljko"
+        fill
+        priority
+        className="object-cover object-top"
+      />
+    </div>
+    <p
+      className={`text-center text-sm font-semibold whitespace-pre-line ${
+        trigger ? "fade-in-delayed" : "opacity-0"
+      }`}
+      style={trigger ? { animationDelay: "1s" } : {}}
+    >
+      {content.nedeljko.name}
+      {"\n"}
+      {content.nedeljko.title}
+    </p>
+    <blockquote
+      className={`italic text-sm border px-2 py-2 border-white text-center rounded max-w-[80%] ${
+        trigger ? "fade-in-delayed" : "opacity-0"
+      }`}
+      style={trigger ? { animationDelay: "1.1s" } : {}}
+    >
+      {content.nedeljko.quote}
+    </blockquote>
+  </div>
+</div>
           </div>
         </div>
       }
