@@ -32,10 +32,7 @@ export default function ServicesDesktop({
           <div className="absolute top-0 left-0 w-[8%] h-full bg-white animate-slideDown z-0" />
         )}
 
-        <div
-          className="relative z-10 gap-40 w-full h-full py-20 flex flex-col justify-start
-         text-white font-montserrat"
-        >
+        <div className="relative z-10 w-full h-full py-20 px-6 flex flex-col justify-around text-white font-montserrat gap-10">
           <h2
             className={`text-4xl font-bold text-center ${
               trigger ? "fade-in-delayed" : "opacity-0"
@@ -45,7 +42,7 @@ export default function ServicesDesktop({
             {t.heading}
           </h2>
 
-          <div className="px-12 flex flex-col gap-24 text-center text-lg lg:text-sm xl:text-lg">
+          <div className="flex flex-col gap-10 text-center text-lg lg:text-sm xl:text-lg">
             {t.paragraphs.map((p, i) => (
               <p
                 key={i}
@@ -60,23 +57,20 @@ export default function ServicesDesktop({
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="relative w-full h-full bg-black text-white font-montserrat overflow-hidden">
-        {/* Lines */}
+      <div className="relative w-full bg-black text-white font-montserrat overflow-hidden">
         {trigger && (
           <>
             <div className="absolute top-0 left-0 w-[2px] h-1/2 bg-white animate-lineDown z-10" />
             <div className="absolute bottom-0 left-0 w-[2px] h-1/2 bg-white animate-lineUp z-10" />
-
-            <div className="w-full h-[2px] bg-white animate-horizontalSplit" />
-
+            <div className="absolute top-0 left-0 h-[2px] w-0 bg-white animate-horizontalSplit z-10" />
             <div className="absolute top-1/2 left-1/2 w-[2px] h-full bg-white animate-lineUpFromCenter origin-bottom z-10" />
             <div className="absolute top-1/2 left-1/2 w-[2px] h-full bg-white animate-lineDownFromCenter origin-top z-10" />
           </>
         )}
 
-        <div className="absolute inset-0 z-20 flex flex-row px-10 py-10 overflow-y-auto">
+        <div className="absolute inset-0 z-20 flex flex-row px-10 py-10">
           {/* Architecture */}
-          <div className="w-1/2 flex flex-col items-center gap-10 lg:gap-16 px-6 text-center group">
+          <div className="w-1/2 flex flex-col items-center gap-10 px-6 text-center group">
             <div
               className={`w-full ${trigger ? "fade-in-delayed" : "opacity-0"}`}
               style={{ animationDelay: "0.4s" }}
@@ -93,7 +87,7 @@ export default function ServicesDesktop({
             </div>
 
             <div
-              className={`max-w-prose text-lg lg:text-sm xl:text-lg lg:gap-16 px-4 flex flex-col gap-6 ${
+              className={`max-w-prose text-lg lg:text-sm xl:text-lg flex flex-col gap-6 ${
                 trigger ? "fade-in-delayed" : "opacity-0"
               }`}
               style={{ animationDelay: "1.2s" }}
@@ -111,7 +105,7 @@ export default function ServicesDesktop({
             <Image
               src="/picture1.png"
               alt="Architecture example"
-              width={600} // adjust to match your layout needs
+              width={600}
               height={400}
               priority
               className={`w-[45%] rounded shadow-md ${
@@ -121,8 +115,8 @@ export default function ServicesDesktop({
             />
           </div>
 
-          {/* Web Development (Right Half) */}
-          <div className="w-1/2 flex flex-col items-center gap-10 lg:gap-16 px-6 text-center group">
+          {/* Web */}
+          <div className="w-1/2 flex flex-col items-center gap-10 px-6 text-center group">
             <div
               className={`w-full ${trigger ? "fade-in-delayed" : "opacity-0"}`}
               style={{ animationDelay: "0.6s" }}
@@ -137,7 +131,7 @@ export default function ServicesDesktop({
             <Image
               src="/picture4.png"
               alt="Web project"
-              width={600} // Adjust based on layout needs
+              width={600}
               height={400}
               priority
               className={`w-[45%] rounded shadow-md ${
@@ -147,7 +141,7 @@ export default function ServicesDesktop({
             />
 
             <div
-              className={`max-w-prose text-lg lg:text-sm xl:text-lg lg:gap-16  flex flex-col gap-6 ${
+              className={`max-w-prose text-lg lg:text-sm xl:text-lg flex flex-col gap-6 ${
                 trigger ? "fade-in-delayed" : "opacity-0"
               }`}
               style={{ animationDelay: "1.4s" }}
