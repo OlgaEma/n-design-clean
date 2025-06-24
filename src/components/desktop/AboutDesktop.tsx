@@ -117,7 +117,7 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
                 }`}
                 style={{ animationDelay: "0.9s" }}
               >
-                <div className="text-sm max-w-prose text-center opacity-0 group-hover:opacity-100 transition duration-300 text-lg lg:text-sm xl:text-lg">
+                <div className="text-sm max-w-prose text-center opacity-0 group-hover:opacity-100 transition duration-300 text-lg lg:text-sm xl:text-lg text-left">
                   {content.natasha.paragraphs.map((text, i) => (
                     <p key={i}>{text}</p>
                   ))}
@@ -134,7 +134,7 @@ export default function AboutDesktop({ language, trigger, refProp }: Props) {
                 style={{ animationDelay: "1.2s" }}
               >
                 <div className="flex justify-center items-center h-full">
-                  <div className="text-sm max-w-prose text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg lg:text-sm xl:text-lg">
+                  <div className="text-sm max-w-prose text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg lg:text-sm xl:text-lg text-left">
                     {content.nedeljko.paragraphs.map((text, i) => (
                       <p key={i}>{text}</p>
                     ))}

@@ -32,7 +32,7 @@ export default function ServicesDesktop({
           <div className="absolute top-0 left-0 w-[8%] h-full bg-white animate-slideDown z-0" />
         )}
 
-        <div className="relative z-10 w-full h-full py-20 px-6 flex flex-col justify-around text-white font-montserrat gap-10">
+        <div className="relative z-10 w-full h-full py-20 pl-12 px-2 flex flex-col justify-start text-white font-montserrat gap-40">
           <h2
             className={`text-4xl font-bold text-center ${
               trigger ? "fade-in-delayed" : "opacity-0"
