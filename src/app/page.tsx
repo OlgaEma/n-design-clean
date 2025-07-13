@@ -273,7 +273,7 @@ export default function Home() {
               )}
 
               {/* Content area */}
-              <div className="relative z-10 gap-2 w-full h-full px-5 py-10 flex flex-col justify-around text-[#FFFFFF] font-montserrat">
+              <div className="relative z-10 gap-2 w-full h-full px-2 py-10 flex flex-col justify-around text-[#FFFFFF] font-montserrat">
                 <h2
                   className={`text-4xl font-bold text-center ${
                     triggerArchitectureAnimation
